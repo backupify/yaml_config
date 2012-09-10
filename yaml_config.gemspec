@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "yaml_config"
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Haruska"]
@@ -27,7 +27,8 @@ Gem::Specification.new do |s|
     "lib/yaml_config.rb",
     "lib/yaml_config/utils.rb",
     "test/helper.rb",
-    "test/yaml_config_test.rb"
+    "test/yaml_config_test.rb",
+    "yaml_config.gemspec"
   ]
   s.homepage = "http://github.com/backupify/yaml_config"
   s.licenses = ["MIT"]
