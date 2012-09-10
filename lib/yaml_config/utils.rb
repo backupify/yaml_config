@@ -10,7 +10,7 @@ module YamlConfig
     # @scope class
     #
     # @return [ServiceConfig] config
-    def from_file(filename)
+    def self.from_file(filename)
       config_hash = transform_config_hash(YAML.load_file(filename))
       Hashie::Mash.new(config_hash)
     end
