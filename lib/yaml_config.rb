@@ -21,7 +21,7 @@ module YamlConfig
             file = File.expand_path("#{config_dir}/#{file_name}")
 
             ff = YamlConfig::Utils.from_file(file)
-            ff = ff[Rails.env.to_s] if ff[Rails.env.to_s].present?
+            ff = ff[Rails.env.to_s] if defined?(::Rails) && ff[Rails.env.to_s].present?
 
             class_variable_set var_name, ff
           end
