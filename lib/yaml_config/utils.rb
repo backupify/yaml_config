@@ -1,4 +1,5 @@
 require 'hashie'
+require 'erb'
 
 module YamlConfig
   class Utils
@@ -11,8 +12,8 @@ module YamlConfig
     #
     # @return [ServiceConfig] config
     def self.from_file(filename)
-      config_hash = transform_config_hash(YAML.load_file(filename))
-      Hashie::Mash.new(config_hash)
+      config_hash = YAML::load(ERB.new(IO.read(filename)).result)
+      transform_config_hash(Hashie::Mash.new(config_hash))
     end
 
     private

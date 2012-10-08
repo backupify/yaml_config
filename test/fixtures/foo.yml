@@ -1,0 +1,5 @@
+array_value:
+  - first_value
+  - second_value
+
+string_value: 'a string'

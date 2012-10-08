@@ -15,4 +15,9 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'yaml_config'
 
 class Test::Unit::TestCase
+
+  def fixtures_root
+    @fixtures_root ||= File.expand_path(File.dirname(__FILE__) + "/fixtures")
+  end
+
 end
