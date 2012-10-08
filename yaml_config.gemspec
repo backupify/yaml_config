@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "yaml_config"
-  s.version = "0.0.3"
+  s.version = "0.0.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jason Haruska"]
-  s.date = "2012-09-26"
+  s.date = "2012-10-08"
   s.description = "Reads in multiple yml files and makes them available to the rest of the project"
   s.email = "jason@backupify.com"
   s.extra_rdoc_files = [
@@ -26,14 +26,19 @@ Gem::Specification.new do |s|
     "VERSION",
     "lib/yaml_config.rb",
     "lib/yaml_config/utils.rb",
+    "test/fixtures/bar.yml",
+    "test/fixtures/foo-with-erb.yml",
+    "test/fixtures/foo-with-inline-ruby.yml",
+    "test/fixtures/foo.yml",
     "test/helper.rb",
-    "test/yaml_config_test.rb",
+    "test/unit/yaml_config/utils_test.rb",
+    "test/unit/yaml_config_test.rb",
     "yaml_config.gemspec"
   ]
   s.homepage = "http://github.com/backupify/yaml_config"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.18"
+  s.rubygems_version = "1.8.15"
   s.summary = "Reads in multiple yml files and makes them available to the rest of the project"
 
   if s.respond_to? :specification_version then
