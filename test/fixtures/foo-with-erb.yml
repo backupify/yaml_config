@@ -1,0 +1,5 @@
+<% if true %>
+a_value_from_erb: <%= 1 + 1 %>
+<% else %>
+should_not_exist: "this shouldn't exist"
+<% end %>
