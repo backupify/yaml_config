@@ -1,5 +1,6 @@
 require 'hashie'
 require 'erb'
+require 'yaml'
 
 module YamlConfig
   class Utils

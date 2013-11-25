@@ -1,3 +1,5 @@
+require_relative '../../helper'
+
 module YamlConfig
 
   class UtilsTest < Test::Unit::TestCase
