@@ -1,3 +1,4 @@
+require "yaml_config/version"
 require 'active_support/concern'
 require 'yaml_config/utils'
 

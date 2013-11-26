@@ -1,47 +1,18 @@
-# encoding: utf-8
-
-require 'rubygems'
-require 'bundler'
-begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
-end
+require "bundler/gem_tasks"
 require 'rake'
-
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "yaml_config"
-  gem.homepage = "http://github.com/backupify/yaml_config"
-  gem.license = "MIT"
-  gem.summary = %Q{Reads in multiple yml files and makes them available to the rest of the project}
-  gem.description = %Q{Reads in multiple yml files and makes them available to the rest of the project}
-  gem.email = "jason@backupify.com"
-  gem.authors = ["Jason Haruska"]
-  # dependencies defined in Gemfile
-end
-
-#Uncomment for a public gem
-#Jeweler::RubygemsDotOrgTasks.new
-
 require 'rake/testtask'
-Rake::TestTask.new(:test) do |test|
-  test.libs << 'lib' << 'test'
-  test.pattern = 'test/**/*_test.rb'
-  test.verbose = true
+
+Rake::TestTask.new do |t|
+  t.pattern = 'test/**/*_test.rb'
+  t.libs.push 'test'
 end
 
 task :default => :test
 
-require 'rdoc/task'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "yaml_config #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
+task :console do
+  Bundler.require
+  require "storage_strategy"
+  ARGV.clear
+  require "irb"
+  IRB.start
 end
