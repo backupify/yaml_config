@@ -2,7 +2,7 @@ require_relative '../../helper'
 
 module YamlConfig
 
-  class UtilsTest < Test::Unit::TestCase
+  class UtilsTest < Minitest::Spec
 
     should 'read yml from file' do
       yml_data = Utils.from_file(fixtures_root + "/foo.yml")

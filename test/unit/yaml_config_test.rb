@@ -4,7 +4,7 @@ class DummyConfig
   include YamlConfig
 end
 
-class TestYamlConfig < Test::Unit::TestCase
+class TestYamlConfig < Minitest::Spec
 
   should 'provide yml configuration readers for any class' do
     DummyConfig.configure fixtures_root, :foo, :bar, :foo_with_erb, :foo_with_inline_ruby

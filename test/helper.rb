@@ -13,14 +13,21 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
-require 'test/unit'
-require 'shoulda'
+
+require 'minitest/autorun'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'yaml_config'
 
-class Test::Unit::TestCase
+class Minitest::Spec
+  # make minitest spec dsl similar to shoulda
+  class << self
+    alias :setup :before
+    alias :teardown :after
+    alias :context :describe
+    alias :should :it
+  end
 
   def fixtures_root
     @fixtures_root ||= File.expand_path(File.dirname(__FILE__) + "/fixtures")
