@@ -2,11 +2,12 @@ language: ruby
 rvm:
   - 1.9.3
   - 2.1.2
-  - jruby-21mode
-  - rbx
+  - jruby-head
+  - rbx-2
   
 script: bundle exec rake
 
 matrix:
   allow_failures:
-    - rvm: rbx
+    - rvm: rbx-2
+    - rvm: jruby-head
